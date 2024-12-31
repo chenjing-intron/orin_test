@@ -1,0 +1,59 @@
+SPDX-FileCopyrightText: Copyright (c) 2022 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+SPDX-License-Identifier: LicenseRef-NvidiaProprietary
+
+NVIDIA CORPORATION, its affiliates and licensors retain all intellectual
+property and proprietary rights in and to this material, related
+documentation and any modifications thereto. Any use, reproduction,
+disclosure or distribution of this material and related documentation
+without an express license agreement from NVIDIA CORPORATION or
+its affiliates is strictly prohibited.
+
+Portions of this software are under following license terms:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+(C) Copyright IBM Corporation 2006
+
+Copyright (c) 2007 Paulo R. Zanoni, Tiago Vignatti
+
+Copyright 2009 Red Hat, Inc.
+
+pci-enum.h
+
+Based on libpciaccess/include/pciaccess.h from libpciaccess-0.12.1, which
+can be found here:
+
+http://cgit.freedesktop.org/xorg/lib/libpciaccess
+
+Original authors: Ian Romanick <idr@us.ibm.com>, Paulo R. Zanoni,
+                  Tiago Vignatti
+
+pcienum-sysfs.c
+
+Based on libpciaccess/src/linux_sysfs.c from libpciaccess-0.12.1, which was
+found here:
+
+http://cgit.freedesktop.org/xorg/lib/libpciaccess
+
+Access PCI subsystem using Linux's sysfs interface.  This interface is
+available starting somewhere in the late 2.5.x kernel phase, and is the
+preferred method on all 2.6.x kernels.
+
+Original author: Ian Romanick <idr@us.ibm.com>
+
