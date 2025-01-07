@@ -235,6 +235,44 @@
 	serial@31d0000 {
 		status = "okay";
 	};
+	
+	tegra-camera-platform {
+		modules {
+			module0 {
+				status = "okay";
+				drivernode0 {
+					status = "okay";
+				};
+			};
+		};
+	};
+	
+	capture_vi_base: tegra-capture-vi {
+		ports {
+			vi_port0: port@0 {
+				status = "okay";
+				vi_in0: endpoint {
+					status = "okay";
+				};
+			};
+		};
+	};
+	
+	host1x@13e00000 {
+		nvcsi@15a00000 {
+		    channel@0 {
+		        status = "okay";
+		        ports {
+		            port@0 {
+		                status = "okay";
+		                irs2877a_csi_in0: endpoint@0 {
+		                    status = "okay";
+		                };
+		            };
+		        };
+		    };
+		};
+    };
 };
 / {
 	funnel_top_ccplex@26020000 {
