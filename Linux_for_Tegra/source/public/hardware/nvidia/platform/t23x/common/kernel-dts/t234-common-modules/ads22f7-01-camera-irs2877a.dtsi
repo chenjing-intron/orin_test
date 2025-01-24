@@ -24,7 +24,7 @@
             port@0 {
                 reg = <0>;
                 irs2877a_vi_in0: endpoint {
-                	vc-id = <0>;
+                    vc-id = <0>;
                     port-index = <0>;
                     bus-width = <4>;
                     remote-endpoint = <&irs2877a_csi_out0>;
@@ -78,18 +78,18 @@
                     discontinuous_clk = "no";
                     dpcm_enable = "false";
                     cil_settletime = "0";
-                    dynamic_pixel_bit_depth = "12";
-                    csi_pixel_bit_depth = "12";
-                    mode_type = "bayer";
-                    pixel_phase = "rggb";
+                    dynamic_pixel_bit_depth = "16";
+                    csi_pixel_bit_depth = "16";
+                    mode_type = "yuv";
+                    pixel_phase = "uyvy";
 
-                    active_w = "640";
-                    active_h = "1205";
+                    active_w = "1920";
+                    active_h = "1080";
                     readout_orientation = "0";
                     line_length = "1000";
                     inherent_gain = "1";
-                    pix_clk_hz = "23136000";
-                    serdes_pix_clk_hz = "150000000";
+                    pix_clk_hz = "62208000";
+                    serdes_pix_clk_hz = "300000000";
 
                     gain_factor = "10";
                     min_gain_val = "0"; /* dB */

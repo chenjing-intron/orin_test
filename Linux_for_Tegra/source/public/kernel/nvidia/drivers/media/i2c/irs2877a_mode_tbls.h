@@ -51,6 +51,6 @@ static const int irs2877a_120fps[] = {
 };
 
 static const struct camera_common_frmfmt irs2877a_frmfmt[] = {
-	{{640, 1205}, irs2877a_30fps, 1, 0, IRS2877A_MODE_640X1205_CROP_30FPS},
+	{{1920, 1080}, irs2877a_30fps, 1, 0, IRS2877A_MODE_640X1205_CROP_30FPS},
 };
 #endif /* __IRS2877A_I2C_TABLES__ */
