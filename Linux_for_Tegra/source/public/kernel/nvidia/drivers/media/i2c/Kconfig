@@ -193,6 +193,16 @@ config NV_VIDEO_IRS2877A
 
 	  To compile this driver as a module, choose M here: the module
 	  will be called IRS2877A.
+	  
+config NV_VIDEO_SZ220AT
+	tristate "SZ220AT camera sensor support"
+	depends on I2C && VIDEO_V4L2 && VIDEO_V4L2_SUBDEV_API
+	help
+	  This is a Video4Linux2 sensor-level driver for the
+	  SZ220AT camera.
+
+	  To compile this driver as a module, choose M here: the module
+	  will be called SZ220AT.	  
 endmenu
 
 endif

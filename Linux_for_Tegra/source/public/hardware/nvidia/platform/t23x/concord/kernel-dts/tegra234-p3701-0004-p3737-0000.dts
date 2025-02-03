@@ -273,6 +273,15 @@
 		    };
 		};
     };
+    
+    gpio@2200000 {
+    
+    	/delete-node/ camera-control-output-low;
+    	
+    };
+    
+    
+    
 };
 / {
 	funnel_top_ccplex@26020000 {

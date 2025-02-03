@@ -24,5 +24,9 @@
 				irs2877a_a@3d {
 					def-addr = <0x3d>;
 				};
+				
+				sz220at_b@30 {
+					def-addr = <0x30>;
+				};
 	};
 };

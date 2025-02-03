@@ -15,42 +15,42 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef __IRS2877A_I2C_TABLES__
-#define __IRS2877A_I2C_TABLES__
+#ifndef __SZ220AT_I2C_TABLES__
+#define __SZ220AT_I2C_TABLES__
 
 #include <media/camera_common.h>
 
-#define IRS2877A_TABLE_WAIT_MS	0xff00
-#define IRS2877A_TABLE_END	0xff01
-#define IRS2877A_MAX_RETRIES	3
-#define IRS2877A_WAIT_MS_STOP	1
-#define IRS2877A_WAIT_MS_START	30
-#define IRS2877A_WAIT_MS_STREAM	210
-#define IRS2877A_GAIN_TABLE_SIZE 255
+#define SZ220AT_TABLE_WAIT_MS	0xff00
+#define SZ220AT_TABLE_END	0xff01
+#define SZ220AT_MAX_RETRIES	3
+#define SZ220AT_WAIT_MS_STOP	1
+#define SZ220AT_WAIT_MS_START	30
+#define SZ220AT_WAIT_MS_STREAM	210
+#define SZ220AT_GAIN_TABLE_SIZE 255
 
 #define ovx3c_reg struct reg_8
 
 
 
 enum {
-	IRS2877A_MODE_640X1205_CROP_30FPS,
-	IRS2877A_MODE_START_STREAM,
-	IRS2877A_MODE_STOP_STREAM,
+	SZ220AT_MODE_640X1205_CROP_30FPS,
+	SZ220AT_MODE_START_STREAM,
+	SZ220AT_MODE_STOP_STREAM,
 };
 
-static const int irs2877a_30fps[] = {
+static const int sz220at_30fps[] = {
 	30,
 };
 
-static const int irs2877a_60fps[] = {
+static const int sz220at_60fps[] = {
 	60,
 };
 
-static const int irs2877a_120fps[] = {
+static const int sz220at_120fps[] = {
 	120,
 };
 
-static const struct camera_common_frmfmt irs2877a_frmfmt[] = {
-	{{640, 2169}, irs2877a_30fps, 1, 0, IRS2877A_MODE_640X1205_CROP_30FPS},
+static const struct camera_common_frmfmt sz220at_frmfmt[] = {
+	{{1920, 1080}, sz220at_30fps, 1, 0, SZ220AT_MODE_640X1205_CROP_30FPS},
 };
-#endif /* __IRS2877A_I2C_TABLES__ */
+#endif /* __SZ220AT_I2C_TABLES__ */

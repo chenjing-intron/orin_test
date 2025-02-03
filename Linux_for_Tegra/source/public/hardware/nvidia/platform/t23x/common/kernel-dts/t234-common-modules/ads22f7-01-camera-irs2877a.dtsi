@@ -17,17 +17,26 @@
 / {
 
 	 tegra-capture-vi {
-        num-channels = <1>;
+        num-channels = <2>;
         ports {
             #address-cells = <1>;
             #size-cells = <0>;
             port@0 {
                 reg = <0>;
-                irs2877a_vi_in0: endpoint {
+                sz220at_vi_in0: endpoint {
                     vc-id = <0>;
                     port-index = <0>;
                     bus-width = <4>;
-                    remote-endpoint = <&irs2877a_csi_out0>;
+                    remote-endpoint = <&sz220at_csi_out0>;
+                };
+            };
+            port@1 {
+                reg = <1>;
+                irs2877a_vi_in1: endpoint {
+                    vc-id = <1>;
+                    port-index = <0>;
+                    bus-width = <4>;
+                    remote-endpoint = <&irs2877a_csi_out1>;
                 };
             };
         };
@@ -35,7 +44,7 @@
 
     host1x@13e00000 {
         nvcsi@15a00000 {
-            num-channels = <1>;
+            num-channels = <2>;
             #address-cells = <1>;
             #size-cells = <0>;
             channel@0 {
@@ -45,16 +54,37 @@
                     #size-cells = <0>;
                     port@0 {
                         reg = <0>;
-                        irs2877a_csi_in0: endpoint@0 {
+                        sz220at_csi_in0: endpoint@0 {
                             port-index = <0>;
                             bus-width = <4>;
-                            remote-endpoint = <&irs2877a_irs2877a_out0>;
+                            remote-endpoint = <&sz220at_sz220at_out0>;
                         };
                     };
                     port@1 {
                         reg = <1>;
-                        irs2877a_csi_out0: endpoint@1 {
-                            remote-endpoint = <&irs2877a_vi_in0>;
+                        sz220at_csi_out0: endpoint@1 {
+                            remote-endpoint = <&sz220at_vi_in0>;
+                        };
+                    };
+                };
+            };
+            channel@1 {
+                reg = <1>;
+                ports {
+                    #address-cells = <1>;
+                    #size-cells = <0>;
+                    port@0 {
+                        reg = <0>;
+                        irs2877a_csi_in1: endpoint@2 {
+                            port-index = <0>;
+                            bus-width = <4>;
+                            remote-endpoint = <&irs2877a_irs2877a_out1>;
+                        };
+                    };
+                    port@1 {
+                        reg = <1>;
+                        irs2877a_csi_out1: endpoint@3 {
+                            remote-endpoint = <&irs2877a_vi_in1>;
                         };
                     };
                 };
@@ -73,7 +103,68 @@
                     mclk_khz = "24000";
                     num_lanes = "4";
                     tegra_sinterface = "serial_a";
-					phy_mode = "DPHY";
+		    phy_mode = "DPHY";
+                    vc_id = "1";
+                    discontinuous_clk = "no";
+                    dpcm_enable = "false";
+                    cil_settletime = "0";
+                    dynamic_pixel_bit_depth = "12";
+                    csi_pixel_bit_depth = "12";
+                    mode_type = "bayer";
+                    pixel_phase = "rggb";
+                    active_w = "640";
+                    active_h = "2169";
+                    readout_orientation = "0";
+                    line_length = "1000";
+                    inherent_gain = "1";
+                    pix_clk_hz = "41644800";
+                    serdes_pix_clk_hz = "400000000";
+
+                    gain_factor = "10";
+                    min_gain_val = "0"; /* dB */
+                    max_gain_val = "300"; /* dB */
+                    step_gain_val = "3"; /* 0.3 */
+                    default_gain = "0";
+                    min_hdr_ratio = "1";
+                    max_hdr_ratio = "1";
+                    framerate_factor = "1000000";
+                    min_framerate = "30000000";
+                    max_framerate = "30000000";
+                    step_framerate = "1";
+                    default_framerate = "30000000";
+                    exposure_factor = "1000000";
+                    min_exp_time = "59"; /*us, 2 lines*/
+                    max_exp_time = "33333";
+                    step_exp_time = "1";
+                    default_exp_time = "33333";/* us */
+                    embedded_metadata_height = "0";
+                };
+				ports {
+					#address-cells = <1>;
+					#size-cells = <0>;
+					port@0 {
+						reg = <0>;
+						irs2877a_irs2877a_out1: endpoint {
+							vc-id = <1>;
+							port-index = <0>;
+							bus-width = <4>;
+							remote-endpoint = <&irs2877a_csi_in1>;
+							};
+						};
+					};
+		};
+		
+		sz220at_b@30 {
+				compatible = "sensing,sz220at";
+			
+				reg = <0x30>;
+
+				sensor_model ="sz220at";
+				mode0 {/*mode irs2877a_MODE_1920X1080_CROP_30FPS*/
+                    mclk_khz = "24000";
+                    num_lanes = "4";
+                    tegra_sinterface = "serial_a";
+		    phy_mode = "DPHY";
                     vc_id = "0";
                     discontinuous_clk = "no";
                     dpcm_enable = "false";
@@ -115,11 +206,11 @@
 					#size-cells = <0>;
 					port@0 {
 						reg = <0>;
-						irs2877a_irs2877a_out0: endpoint {
+						sz220at_sz220at_out0: endpoint {
 							vc-id = <0>;
 							port-index = <0>;
 							bus-width = <4>;
-							remote-endpoint = <&irs2877a_csi_in0>;
+							remote-endpoint = <&sz220at_csi_in0>;
 							};
 						};
 					};
@@ -152,6 +243,20 @@
 					devname = "irs2877a 0x3d";
 					/* Declare the device-tree hierarchy to driver instance */
 					proc-device-tree = "/proc/device-tree/i2c@3160000/irs2877a_a@3d";
+				};
+			};
+			
+			module1 {
+				badge = "sz220at_front";
+				position = "front";
+				orientation = "1";
+				drivernode0 {
+					/* Declare PCL support driver (classically known as guid)  */
+					pcl_id = "v4l2_sensor";
+					/* Driver v4l2 device name */
+					devname = "sz220at 0x30";
+					/* Declare the device-tree hierarchy to driver instance */
+					proc-device-tree = "/proc/device-tree/i2c@3160000/sz220at_b@30";
 				};
 			};
 		};
