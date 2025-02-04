@@ -252,6 +252,14 @@
 			vi_port0: port@0 {
 				status = "okay";
 				vi_in0: endpoint {
+					vc-id = <0>;
+					status = "okay";
+				};
+			};
+			vi_port1: port@1 {
+				status = "okay";
+				vi_in1: endpoint {
+					vc-id = <1>;
 					status = "okay";
 				};
 			};
@@ -266,6 +274,30 @@
 		            port@0 {
 		                status = "okay";
 		                irs2877a_csi_in0: endpoint@0 {
+		                    status = "okay";
+		                };
+		            };
+		            port@1 {
+                        	status = "okay";
+                        	sz220at_csi_out0: endpoint@1 {
+                           	   status = "okay";
+                       		};
+                   	   };
+		        };
+		    };
+		    
+		    channel@1 {
+		        status = "okay";
+		        ports {
+		            port@0 {
+		                status = "okay";
+		                irs2877a_csi_in1: endpoint@2 {
+		                    status = "okay";
+		                };
+		            };
+		            port@1 {
+		                status = "okay";
+		                irs2877a_csi_out1: endpoint@3 {
 		                    status = "okay";
 		                };
 		            };
