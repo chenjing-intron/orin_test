@@ -25,3 +25,4 @@ obj-$(CONFIG_NV_VIDEO_AR0234) += nv_ar0234.o
 obj-$(CONFIG_NV_DESER_MAX96712) += max96712.o
 obj-$(CONFIG_NV_VIDEO_IRS2877A) += nv_irs2877a.o
 obj-$(CONFIG_NV_VIDEO_SZ220AT) += nv_sz220at.o
+obj-$(CONFIG_NV_VIDEO_ISX031) += nv_isx031.o
