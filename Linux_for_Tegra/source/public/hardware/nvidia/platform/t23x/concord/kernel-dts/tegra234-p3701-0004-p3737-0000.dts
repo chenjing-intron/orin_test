@@ -252,14 +252,14 @@
 			vi_port0: port@0 {
 				status = "okay";
 				vi_in0: endpoint {
-					vc-id = <0>;
+					vc-id = <2>;
 					status = "okay";
 				};
 			};
 			vi_port1: port@1 {
 				status = "okay";
 				vi_in1: endpoint {
-					vc-id = <1>;
+					vc-id = <3>;
 					status = "okay";
 				};
 			};
