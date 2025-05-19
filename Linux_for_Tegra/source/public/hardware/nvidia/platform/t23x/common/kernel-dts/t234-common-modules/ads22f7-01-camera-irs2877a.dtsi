@@ -25,7 +25,7 @@
                 reg = <0>;
                 sz220at_vi_in0: endpoint {
                     vc-id = <0>;
-                    port-index = <0>;
+                    port-index = <4>;
                     bus-width = <4>;
                     remote-endpoint = <&sz220at_csi_out0>;
                 };
@@ -34,7 +34,7 @@
                 reg = <1>;
                 irs2877a_vi_in1: endpoint {
                     vc-id = <1>;
-                    port-index = <0>;
+                    port-index = <4>;
                     bus-width = <4>;
                     remote-endpoint = <&irs2877a_csi_out1>;
                 };
@@ -55,7 +55,7 @@
                     port@0 {
                         reg = <0>;
                         sz220at_csi_in0: endpoint@0 {
-                            port-index = <0>;
+                            port-index = <4>;
                             bus-width = <4>;
                             remote-endpoint = <&sz220at_sz220at_out0>;
                         };
@@ -76,7 +76,7 @@
                     port@0 {
                         reg = <0>;
                         irs2877a_csi_in1: endpoint@2 {
-                            port-index = <0>;
+                            port-index = <4>;
                             bus-width = <4>;
                             remote-endpoint = <&irs2877a_irs2877a_out1>;
                         };
@@ -92,17 +92,17 @@
         };
     };
 
-	i2c@3160000 {
+	i2c@c240000 {
 			irs2877a_a@3d {
-				compatible = "sensing,irs2877a";
+				compatible = "sensing,irs2877a2";
 			
 				reg = <0x3d>;
 
-				sensor_model ="irs2877a";
+				sensor_model ="irs2877a2";
 				mode0 {/*mode irs2877a_MODE_1920X1080_CROP_30FPS*/
                     mclk_khz = "24000";
                     num_lanes = "4";
-                    tegra_sinterface = "serial_a";
+                    tegra_sinterface = "serial_e";
 		    phy_mode = "DPHY";
                     vc_id = "1";
                     discontinuous_clk = "no";
@@ -155,15 +155,15 @@
 		};
 		
 		sz220at_b@30 {
-				compatible = "sensing,sz220at";
+				compatible = "sensing,sz220at2";
 			
 				reg = <0x30>;
 
-				sensor_model ="sz220at";
+				sensor_model ="sz220at2";
 				mode0 {/*mode irs2877a_MODE_1920X1080_CROP_30FPS*/
                     mclk_khz = "24000";
                     num_lanes = "4";
-                    tegra_sinterface = "serial_a";
+                    tegra_sinterface = "serial_e";
 		    phy_mode = "DPHY";
                     vc_id = "0";
                     discontinuous_clk = "no";
@@ -242,7 +242,7 @@
 					/* Driver v4l2 device name */
 					devname = "irs2877a 0x3d";
 					/* Declare the device-tree hierarchy to driver instance */
-					proc-device-tree = "/proc/device-tree/i2c@3160000/irs2877a_a@3d";
+					proc-device-tree = "/proc/device-tree/i2c@c240000/irs2877a_a@3d";
 				};
 			};
 			
@@ -256,7 +256,7 @@
 					/* Driver v4l2 device name */
 					devname = "sz220at 0x30";
 					/* Declare the device-tree hierarchy to driver instance */
-					proc-device-tree = "/proc/device-tree/i2c@3160000/sz220at_b@30";
+					proc-device-tree = "/proc/device-tree/i2c@c240000/sz220at_b@30";
 				};
 			};
 		};
