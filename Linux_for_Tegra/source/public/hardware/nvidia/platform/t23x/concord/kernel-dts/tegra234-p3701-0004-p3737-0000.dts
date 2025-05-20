@@ -244,6 +244,24 @@
 					status = "okay";
 				};
 			};
+			module1 {
+				status = "okay";
+				drivernode0 {
+					status = "okay";
+				};
+			};
+			module2 {
+				status = "okay";
+				drivernode0 {
+					status = "okay";
+				};
+			};
+			module3 {
+				status = "okay";
+				drivernode0 {
+					status = "okay";
+				};
+			};
 		};
 	};
 	
@@ -252,13 +270,27 @@
 			vi_port0: port@0 {
 				status = "okay";
 				vi_in0: endpoint {
-					vc-id = <2>;
+					vc-id = <0>;
 					status = "okay";
 				};
 			};
 			vi_port1: port@1 {
 				status = "okay";
 				vi_in1: endpoint {
+					vc-id = <1>;
+					status = "okay";
+				};
+			};
+			vi_port2: port@2 {
+				status = "okay";
+				vi_in2: endpoint {
+					vc-id = <2>;
+					status = "okay";
+				};
+			};
+			vi_port3: port@3 {
+				status = "okay";
+				vi_in3: endpoint {
 					vc-id = <3>;
 					status = "okay";
 				};
@@ -298,6 +330,41 @@
 		            port@1 {
 		                status = "okay";
 		                irs2877a_csi_out1: endpoint@3 {
+		                    status = "okay";
+		                };
+		            };
+		        };
+		    };
+		    channel@2 {
+		        status = "okay";
+		        ports {
+		            port@0 {
+		                status = "okay";
+		                irs2877a_csi_in2: endpoint@4 {
+		                    status = "okay";
+		                };
+		            };
+		            port@1 {
+                        	status = "okay";
+                        	sz220at_csi_out2: endpoint@5 {
+                           	   status = "okay";
+                       		};
+                   	   };
+		        };
+		    };
+		    
+		    channel@3 {
+		        status = "okay";
+		        ports {
+		            port@0 {
+		                status = "okay";
+		                irs2877a_csi_in3: endpoint@6 {
+		                    status = "okay";
+		                };
+		            };
+		            port@1 {
+		                status = "okay";
+		                irs2877a_csi_out3: endpoint@7 {
 		                    status = "okay";
 		                };
 		            };

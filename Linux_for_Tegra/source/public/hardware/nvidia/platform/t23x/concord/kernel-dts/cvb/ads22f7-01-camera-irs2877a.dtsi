@@ -21,12 +21,20 @@
 / {
 	/*i2c 0*/
 	i2c@c240000 {
-				irs2877a_a@3d {
-					def-addr = <0x3d>;
-				};
+		irs2877a_a@32 {
+			def-addr = <0x32>;
+		};
 				
-				sz220at_b@30 {
-					def-addr = <0x30>;
-				};
+		sz220at_b@31 {
+			def-addr = <0x31>;
+		};
+				
+		irs2877a_a@34 {
+			def-addr = <0x34>;
+		};
+				
+		sz220at_b@33 {
+			def-addr = <0x33>;
+		};
 	};
 };
