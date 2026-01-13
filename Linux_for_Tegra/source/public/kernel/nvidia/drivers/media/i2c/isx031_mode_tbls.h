@@ -51,6 +51,6 @@ static const int isx031_120fps[] = {
 };
 
 static const struct camera_common_frmfmt isx031_frmfmt[] = {
-	{{1920, 1080}, isx031_30fps, 1, 0, ISX031_MODE_640X1205_CROP_30FPS},
+	{{1920, 1536}, isx031_30fps, 1, 0, ISX031_MODE_640X1205_CROP_30FPS},
 };
 #endif /* __ISX031_I2C_TABLES__ */
