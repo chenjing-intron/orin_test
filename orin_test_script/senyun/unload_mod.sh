@@ -1,0 +1,1 @@
+sudo rmmod nv_isx031

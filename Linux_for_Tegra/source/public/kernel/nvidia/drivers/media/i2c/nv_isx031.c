@@ -34,6 +34,7 @@
 #include <linux/kmod.h>
 #include <linux/delay.h> 
 
+#if 0
 uint8_t isx031_init_setting[] = {
 
 0x04,0x29,0x04,0x0B,0x00, 		 	////disable mipi output
@@ -87,7 +88,9 @@ uint8_t isx031_init_setting[] = {
 0x04,0x42,0x00,0x01,0x04,
 0x00,0x64,	
 };
+#endif
 
+#if 0
 uint8_t max96712_setting[] = {
         0x04,0x29,0x03,0x1c,0xeb,  // 1M,High prio,Jitter,output 0,GMSL2 tx
         0x04,0x29,0x03,0x1d,0xa7,  // pulldown,push-pull,id = 7
@@ -148,7 +151,9 @@ uint8_t max96712_setting[] = {
     0x04,0x29,0x00,0x06,0xF4, 	////Enable LINKA
     0x00,0x32,
 };
+#endif
 
+#if 0
 uint8_t Mode5_60Mhz_30fps_setting[] = {
     //************* sensor Setup ********************//
     0x05,0x3d,0xA0,0x07,0x13,0x13,  	// PADGPIOCFG0 (GPIO0 = HighZ GPIO1 = HighZ)
@@ -774,19 +779,19 @@ uint8_t Mode5_60Mhz_30fps_trigger_setting[] = {
     0x05,0x3d,0xA0,0x00,0x14,0x00,      // DMUX0 --> connect pad of GPIO2 to trigger-in signal via DMUX
     0x00,0x64,
 };
-
+#endif
 
 uint8_t isx031_stream_on_setting[] = {
-	0x04,0x29,0x04,0x0B,0x42,	// PIPE X BPP = 0x10, enable CSI output
-	0x04,0x29,0x08,0xA0,0x84,       //force all mipi output
+	0x04,0x6b,0x04,0x0B,0x42,	// PIPE X BPP = 0x10, enable CSI output
+	0x04,0x6b,0x08,0xA0,0x84,       //force all mipi output
 };
 
 uint8_t isx031_stream_off_setting[] = {
-	0x04,0x29,0x04,0x0B,0x00,	// enable mipi output           
+	0x04,0x6b,0x04,0x0B,0x00,	// enable mipi output           
 };
 
 static const struct of_device_id isx031_of_match[] = {
-	{ .compatible = "sensing,isx031",},
+	{ .compatible = "sony,isx031",},
 	{ },
 };
 MODULE_DEVICE_TABLE(of, isx031_of_match);
@@ -814,7 +819,7 @@ struct isx031 {
 #if 1
 static const struct regmap_config sensor_regmap_config = {
 	.reg_bits = 16,
-	.val_bits = 16,
+	.val_bits = 8,
 };
 #endif
 
@@ -1156,17 +1161,20 @@ int sensor_start(struct tegracam_device *tc_dev)
 {
   int ret = 0;
   int setting_size = 0;
-  int32_t bus = 0;
+  int32_t bus = 1;
   struct device *dev = tc_dev->dev;
-
   uint8_t *pdata = isx031_stream_on_setting;
+
+  dev_info(dev, "sensor_start: Starting sensor stream\n");
   setting_size = sizeof(isx031_stream_on_setting) / sizeof(uint8_t);
+  dev_info(dev, "sensor_start: Writing %d bytes to sensor\n", setting_size);
   ret = write_register(bus, pdata, setting_size);
   if (ret < 0) 
   {
     dev_err(dev, "isx031 stream_on fail\n");
     return -1;
   }
+  dev_info(dev, "sensor_start: Sensor stream started successfully\n");
   
   return ret;
 }
@@ -1176,7 +1184,7 @@ int sensor_stop(struct tegracam_device *tc_dev)
   struct device *dev = tc_dev->dev;
   int ret = 0;
   int setting_size = 0;
-  int32_t bus = 0;
+  int32_t bus = 1;
 
   uint8_t *pdata = isx031_stream_off_setting;
   setting_size = sizeof(isx031_stream_off_setting) / sizeof(uint8_t);
