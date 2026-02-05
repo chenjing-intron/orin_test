@@ -151,7 +151,7 @@
     };
   };
 
-  i2c@c240000 {
+  i2c@3180000 {
     isx031_a@31{
       compatible = "sony,isx031";
       reg = <0x31>;
@@ -425,7 +425,7 @@
 					/* Driver v4l2 device name */
 					devname = "isx031 0-0031";
 					/* Declare the device-tree hierarchy to driver instance */
-					proc-device-tree = "/proc/device-tree/i2c@c240000/isx031_a@31";
+					proc-device-tree = "/proc/device-tree/i2c@3180000/isx031_a@31";
 				};
 			};
 
@@ -439,7 +439,7 @@
 					/* Driver v4l2 device name */
 					devname = "isx031 0-0032";
 					/* Declare the device-tree hierarchy to driver instance */
-					proc-device-tree = "/proc/device-tree/i2c@c240000/isx031_a@32";
+					proc-device-tree = "/proc/device-tree/i2c@3180000/isx031_a@32";
 				};
 			};
 
@@ -453,7 +453,7 @@
 					/* Driver v4l2 device name */
 					devname = "isx031 0-0033";
 					/* Declare the device-tree hierarchy to driver instance */
-					proc-device-tree = "/proc/device-tree/i2c@c240000/isx031_a@33";
+					proc-device-tree = "/proc/device-tree/i2c@3180000/isx031_a@33";
 				};
 			};
 
@@ -467,7 +467,7 @@
 					/* Driver v4l2 device name */
 					devname = "isx031 0-0034";
 					/* Declare the device-tree hierarchy to driver instance */
-					proc-device-tree = "/proc/device-tree/i2c@c240000/isx031_a@34";
+					proc-device-tree = "/proc/device-tree/i2c@3180000/isx031_a@34";
 				};
 			};
 		};
