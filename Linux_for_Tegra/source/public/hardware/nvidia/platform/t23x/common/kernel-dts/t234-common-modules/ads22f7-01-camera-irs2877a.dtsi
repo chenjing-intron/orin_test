@@ -152,7 +152,7 @@
         };
     };
 
-	i2c@c240000 {
+	i2c@3180000 {
 	
 		    irs2877a_a@34 {
 			compatible = "sensing,irs2877a2";
@@ -431,7 +431,7 @@
 					/* Driver v4l2 device name */
 					devname = "irs2877a 0x32";
 					/* Declare the device-tree hierarchy to driver instance */
-					proc-device-tree = "/proc/device-tree/i2c@c240000/irs2877a_a@32";
+					proc-device-tree = "/proc/device-tree/i2c@3180000/irs2877a_a@32";
 				};
 			};
 			
@@ -445,7 +445,7 @@
 					/* Driver v4l2 device name */
 					devname = "sz220at 0x31";
 					/* Declare the device-tree hierarchy to driver instance */
-					proc-device-tree = "/proc/device-tree/i2c@c240000/sz220at_b@31";
+					proc-device-tree = "/proc/device-tree/i2c@3180000/sz220at_b@31";
 				};
 			};
 			
@@ -459,7 +459,7 @@
 					/* Driver v4l2 device name */
 					devname = "irs2877a 0x34";
 					/* Declare the device-tree hierarchy to driver instance */
-					proc-device-tree = "/proc/device-tree/i2c@c240000/irs2877a_a@34";
+					proc-device-tree = "/proc/device-tree/i2c@3180000/irs2877a_a@34";
 				};
 			};
 			
@@ -473,7 +473,7 @@
 					/* Driver v4l2 device name */
 					devname = "sz220at 0x33";
 					/* Declare the device-tree hierarchy to driver instance */
-					proc-device-tree = "/proc/device-tree/i2c@c240000/sz220at_b@33";
+					proc-device-tree = "/proc/device-tree/i2c@3180000/sz220at_b@33";
 				};
 			};
 		};

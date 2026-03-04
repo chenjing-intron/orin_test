@@ -533,9 +533,11 @@ int sensor_start(struct tegracam_device *tc_dev)
 {
   int ret = 0;
   int setting_size = 0;
-  int32_t bus = 1;
+  int32_t bus = 2;
   struct device *dev = tc_dev->dev;
 
+
+  
   uint8_t *pdata = irs2877a_stream_on_setting;
   setting_size = sizeof(irs2877a_stream_on_setting) / sizeof(uint8_t);
   ret = write_register(bus, pdata, setting_size);
@@ -553,7 +555,7 @@ int sensor_stop(struct tegracam_device *tc_dev)
   struct device *dev = tc_dev->dev;
   int ret = 0;
   int setting_size = 0;
-  int32_t bus = 1;
+  int32_t bus = 2;
 
   uint8_t *pdata = irs2877a_stream_off_setting;
   setting_size = sizeof(irs2877a_stream_off_setting) / sizeof(uint8_t);
