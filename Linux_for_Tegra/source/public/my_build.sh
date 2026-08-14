@@ -1,6 +1,6 @@
 
-export CROSS_COMPILE_AARCH64_PATH=/home/user/work/git/orin_test/toolchain
-export CROSS_COMPILE_AARCH64=/home/user/work/git/orin_test/toolchain/bin/aarch64-buildroot-linux-gnu-
+export CROSS_COMPILE_AARCH64_PATH=/home/user/Daniel/orin_test/toolchain
+export CROSS_COMPILE_AARCH64=/home/user/Daniel/orin_test/toolchain/bin/aarch64-buildroot-linux-gnu-
 
 mkdir -p kernel_out
 ./nvbuild.sh -o $PWD/kernel_out
